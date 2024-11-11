@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <img src="{{asset('img/IF.png')}}" alt="" style="width: 50px;">
             <a class="navbar-brand" href="#">@yield('principal-nav')</a>

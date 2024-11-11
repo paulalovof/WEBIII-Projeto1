@@ -10,9 +10,21 @@ class TurmaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $turmas = Turma::all();
+
+        //return view('turma.index', compact('turmas'));
+        
+        $search = $request->input('search');
+
+        $turmas = Turma::query()
+            ->when($search, function ($query, $search) {
+                $query->where('nome', 'like', "%{$search}%")
+                      ->orWhere('ano', 'like', "%{$search}%")
+                      ->orWhere('sigla', 'like', "%{$search}%");
+            })
+            ->get();
 
         return view('turma.index', compact('turmas'));
     }
