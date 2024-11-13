@@ -43,5 +43,9 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+
+        <div class="mt-4">
+            <a href="{{ route('google.redirect') }}" class="btn btn-primary">Login com Google</a>
+        </div>
     </form>
 </x-guest-layout>

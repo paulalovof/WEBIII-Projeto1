@@ -15,6 +15,17 @@
         <div class="container-fluid">
             <img src="{{asset('img/IF.png')}}" alt="" style="width: 50px;">
             <a class="navbar-brand" href="#">@yield('principal-nav')</a>
+            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <!-- <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link> -->
+                            <!-- <a href="logout">Logout</a> -->
+                            <button type="submit" class="btn btn-secondary">Logout</button>
+                </form>
         </div>
 
     </nav>

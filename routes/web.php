@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TurmaController;
 use Illuminate\Support\Facades\Route;
@@ -30,5 +31,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('turma', TurmaController::class);
+
+Route::get('/google/redirect', [GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
 
 require __DIR__.'/auth.php';
